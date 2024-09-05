@@ -1,2 +1,2 @@
-# New-Project-Template
-Create a new empty project in one command. Support multiple languages.
+# New-X-Project
+Create a new empty project in one command for rapid PoF(Proof of Concept). Support multiple languages. X represent different languages.
