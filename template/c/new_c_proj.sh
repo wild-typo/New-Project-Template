@@ -62,3 +62,4 @@ fi
 echo "Created project: $PROJ_NAME"
 
 exit 0
+
