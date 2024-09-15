@@ -1,17 +1,19 @@
 #!/bin/bash
 
 NEW_C_SCRIPT_PATH="template/c/new_c_proj.sh"
+NEW_ASSEMBLY_SCRIPT_PATH="template/assembly/new_assembly_proj.sh"
 # NEW_PYTHON_SCRIPT_PATH="template/python/new_python_proj.sh"
 # NEW_SWIFT_SCRIPT_PATH="template/swift/new_swift_proj.sh"
 
 # Function to display usage
 usage() {
-    echo "Usage: $0 <project_name> [directory] [-c] [-p] [-s]"
+    echo "Usage: $0 <project_name> [directory] [-c] [-p] [-s] [-a]"
     echo "  project_name: Name of the project (mandatory)"
     echo "  directory: Directory to create the project (optional, defaults to current directory)"
     echo "  -c: Set up for C language"
     echo "  -p: Set up for Python language"
     echo "  -s: Set up for Swift language"
+    echo "  -a: Set up for Assembly language"
     exit 1
 }
 
@@ -36,9 +38,10 @@ fi
 C_FLAG=0
 PYTHON_FLAG=0
 SWIFT_FLAG=0
+ASSEMBLY_FLAG=0
 
 # Process the options
-while getopts "cps" opt; do
+while getopts "cpsa" opt; do
     case $opt in
         c)
             C_FLAG=1
@@ -48,6 +51,9 @@ while getopts "cps" opt; do
             ;;
         s)
             SWIFT_FLAG=1
+            ;;
+        a)
+            ASSEMBLY_FLAG=1
             ;;
         *)
             usage
@@ -85,4 +91,13 @@ if [ $SWIFT_FLAG -eq 1 ]; then
     echo "print(\"Hello world!\")" > "$SWIFT_PROJECT_PATH/$PROJECT_NAME.swift"
     echo "SWIFT project '$PROJECT_NAME' created in directory '$SWIFT_PROJECT_PATH'"
 fi
+
+# Setup for Assembly language if -c option is provided
+if [ $ASSEMBLY_FLAG -eq 1 ]; then
+    ASSEMBLY_PROJECT_PATH="$PROJECT_PATH/assembly"
+    mkdir -p "$ASSEMBLY_PROJECT_PATH"
+    $NEW_ASSEMBLY_SCRIPT_PATH $PROJECT_NAME $ASSEMBLY_PROJECT_PATH    
+    echo "Assembly project '$PROJECT_NAME' created in directory '$ASSEMBLY_PROJECT_PATH'"
+fi
+
 
