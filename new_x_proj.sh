@@ -1,9 +1,10 @@
 #!/bin/bash
 
-NEW_C_SCRIPT_PATH="template/c/new_c_proj.sh"
-NEW_ASSEMBLY_SCRIPT_PATH="template/assembly/new_assembly_proj.sh"
-# NEW_PYTHON_SCRIPT_PATH="template/python/new_python_proj.sh"
-# NEW_SWIFT_SCRIPT_PATH="template/swift/new_swift_proj.sh"
+BASE_DIR=$(dirname "$0")
+NEW_C_SCRIPT_PATH="$BASE_DIR/template/c/new_c_proj.sh"
+NEW_ASSEMBLY_SCRIPT_PATH="$BASE_DIR/template/assembly/new_assembly_proj.sh"
+# NEW_PYTHON_SCRIPT_PATH="$BASE_DIR/template/python/new_python_proj.sh"
+# NEW_SWIFT_SCRIPT_PATH="$BASE_DIR/template/swift/new_swift_proj.sh"
 
 # Function to display usage
 usage() {

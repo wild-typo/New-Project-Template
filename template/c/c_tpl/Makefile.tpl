@@ -1,5 +1,5 @@
 CC=clang
-CFLAGS=-Iinclude -std=c89 -g -O0
+CFLAGS=-Iinclude -std=c99 -g -O0
 
 SRCS = $(wildcard src/*.c)
 OBJS = $(patsubst src/%.c, obj/%.o, $(SRCS))
